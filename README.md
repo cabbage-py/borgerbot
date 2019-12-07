@@ -1,2 +1,0 @@
-# borgerbot
-borger
