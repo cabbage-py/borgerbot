@@ -145,10 +145,14 @@ client.on('message', msg => {
     msg.react(emoji);
   };
   if ((msg.member.id === '231049035648073729')) {
-    msg.channel.send("wow is this thaiuni kid w/ michaelSOFTWARE ENGINEERINGlikes animu + mangu");
+	  if (false) {
+		  msg.channel.send("wow is this thaiuni kid w/ michaelSOFTWARE ENGINEERINGlikes animu + mangu");
+	  }
   };
   if ((msg.member.id === '241459768944754688')) {
-    msg.channel.send("can't believe you dogged the bois for a 3-star vayne (with titanic hydra)");
+	  if (false) {
+		  msg.channel.send("can't believe you dogged the bois for a 3-star vayne (with titanic hydra)");
+	  }
   };
   if ((msg.member.id === '125206334936317952')) {
     //msg.channel.send("\"i'm gonna watch that anime, yukihira no souma\" - issy");
