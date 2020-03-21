@@ -159,9 +159,9 @@ client.on('message', msg => {
   };
   if ((msg.author.bot === false) & str.indexOf('i\'m ') !== -1 | str.indexOf('im ') !== -1){
 	  if (str.indexOf('i\'m ') !== -1 && (str.substring(str.indexOf('i\'m')+4)).trim()){
-		  msg.channel.send("hi " + str.substring(str.indexOf('i\'m')+4) + ", im dad";
+		  msg.channel.send("hi " + str.substring(str.indexOf('i\'m')+4) + ", im dad");
 	  } else if (str.indexOf('im ') !== -1 && (str.substring(str.indexOf('im')+3)).trim()){
-		  msg.channel.send("hi " + str.substring(str.indexOf('im')+3) + ", im dad";
+		  msg.channel.send("hi " + str.substring(str.indexOf('im')+3) + ", im dad");
     };
   };
 });
