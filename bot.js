@@ -157,6 +157,13 @@ client.on('message', msg => {
   if ((msg.member.id === '125206334936317952')) {
     //msg.channel.send("\"i'm gonna watch that anime, yukihira no souma\" - issy");
   };
+  if ((msg.author.bot === false) & str.indexOf('i\'m ') !== -1 | str.indexOf('im ') !== -1){
+	  if (str.indexOf('i\'m ') !== -1 && (str.substring(str.indexOf('i\'m')+4)).trim()){
+		  msg.channel.send("hi " + str.substring(str.indexOf('i\'m')+4) + ", im dad";
+	  } else if (str.indexOf('im ') !== -1 && (str.substring(str.indexOf('im')+3)).trim()){
+		  msg.channel.send("hi " + str.substring(str.indexOf('im')+3) + ", im dad";
+    };
+  };
 });
 
 client.login(process.env.BOT_TOKEN);
