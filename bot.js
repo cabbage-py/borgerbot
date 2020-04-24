@@ -120,9 +120,9 @@ function mid_op_select() {
 }
 
 function mid_select() {
-  var mid_str = this.middle[Math.floor(Math.random() * this.middle.length)];
+  var mid_str = this.middle[Math.floor(Math.random() * middle.length)];
   while (Math.random() > 0.8) {
-    mid_str += "\n" + this.middle[Math.floor(Math.random() * this.middle.length)];
+    mid_str += "\n" + this.middle[Math.floor(Math.random() * middle.length)];
   }
   return mid_str
 }
