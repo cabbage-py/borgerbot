@@ -107,14 +107,14 @@ function top_select() {
   if (Math.random() > 0.3) {
     var top_str = "Bun";
   } else {
-    var top_str = this.top[Math.floor(Math.random() * this.top.length)];
+    var top_str = top[Math.floor(Math.random() * top.length)];
   }
   return top_str;
 }
 
 function mid_op_select() {
   if (Math.random() > 0.9) {
-    return this.mid_op[Math.floor(Math.random() * this.mid_op.length)];
+    return mid_op[Math.floor(Math.random() * mid_op.length)];
   }
   return -1;
 }
@@ -129,7 +129,7 @@ function mid_select() {
 
 function option_select() {
   if (Math.random() > 0.7) {
-    return this.options[Math.floor(Math.random() * this.options.length)];
+    return options[Math.floor(Math.random() * options.length)];
   }
   return -1;
 }
