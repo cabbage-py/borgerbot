@@ -194,7 +194,7 @@ client.on("message", (msg) => {
       } else {
         var temp = "Text-to-speech currently off";
       }
-      msg.channel.send(temp + "\nCommands:\n - `tts on`\n - `tts off");
+      msg.channel.send(temp + "\nCommands:\n - `tts on`\n - `tts off`");
       break;
     case "tts on":
       tts_bool = true;
@@ -239,8 +239,20 @@ client.on("message", (msg) => {
       break;
     case "menu":
       msg.channel.send(
-        "Please specify either:\n - `Buns` \n - `Ingredients` \n - `Options`"
+        "Please specify either:\n - `buns` \n - `ingredients` \n - `ingredient options`\n - `borger options`\ne.g.`menu ingredients`"
       );
+      break;
+    case "menu buns":
+      msg.channel.send(top.join(", "));
+      break;
+    case "menu ingredients":
+      msg.channel.send(middle.join(", "));
+      break;
+    case "menu ingredient options":
+      msg.channel.send(mid_op.join(", "));
+      break;
+    case "menu borger options":
+      msg.channel.send(options.join(", "));
       break;
     case "i want die":
       msg.channel.send("me too", { tts: tts_bool });
