@@ -188,6 +188,22 @@ client.on("message", (msg) => {
     case "test":
       msg.channel.send(top);
       break;
+    case "tts":
+      if (tts_bool){
+        var temp = "Text-to-speech currently on";
+      } else {
+        var temp = "Text-to-speech currently off";
+      }
+      msg.channel.send(temp + "\nCommands:\n - `tts on`\n - `tts off");
+      break;
+    case "tts on":
+      tts_bool = true;
+      msg.channel.send("Text-to-speech now on.");
+      break;
+    case "tts off":
+      tts_bool = false;
+      msg.channel.send("Text-to-speech now off.");
+      break;
     case "uwu":
       weeb(msg);
       break;
@@ -198,21 +214,13 @@ client.on("message", (msg) => {
       break;
     case ";)":
       if (msg.author.bot === false) {
-        msg.channel.send(";)", { tts: true });
+        msg.channel.send(";)", { tts: tts_bool });
       }
       break;
     case "no u":
       if (msg.author.bot === false) {
         msg.channel.send("no u");
       }
-      break;
-    case "salt":
-      msg.channel.send(
-        "everyday i pour salt around the boundaries of my home in order to keep the dan away",
-        {
-          tts: tts_bool,
-        }
-      );
       break;
     case "borger":
       msg.channel.send(borger());
@@ -231,12 +239,7 @@ client.on("message", (msg) => {
       break;
     case "menu":
       msg.channel.send(
-        "Buns: " +
-          top.length.toString() +
-          "\nIngredients: " +
-          middle.length.toString() +
-          "\nOptions: " +
-          (options.length + mid_op.length).toString()
+        "Please specify either:\n - `Buns` \n - `Ingredients` \n - `Options`"
       );
       break;
     case "i want die":
@@ -248,11 +251,6 @@ client.on("message", (msg) => {
       } else {
         msg.channel.send("heads");
       }
-      break;
-    case "wow whos that cutie":
-      msg.channel.send(
-        "oh, thats thaiuni kid w/ michaelSOFTWARE ENGINEERINGlikes animu + mangu"
-      );
       break;
     case "o/":
       if (msg.author.bot === false) {
@@ -295,7 +293,6 @@ client.on("message", (msg) => {
     }
   }
   if (msg.member.id === "117577461377531910") {
-    //msg.channel.send("cant believe you dogged the bois for ice skrrtin");
     var emoji = msg.guild.emojis.find((emoji) => emoji.name === "mookle");
     msg.react(emoji);
   }
