@@ -164,7 +164,7 @@ function borger() {
   return borger;
 }
 
-function uwu(msg) {
+function weeb(msg) {
   if (Math.random() > 0.4) {
     msg.channel.send(uwu);
   } else if (Math.random() > 0.5) {
@@ -189,7 +189,7 @@ client.on("message", (msg) => {
       msg.channel.send(top);
       break;
     case "uwu":
-      uwu(msg);
+      weeb(msg);
       break;
     case "owo":
       msg.channel.send(owo, {
