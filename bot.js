@@ -44,6 +44,9 @@ client.on('message', msg => {
     case 'ping':
       msg.channel.send('pong');
       break;
+    case 'test':
+      msg.channel.send(top);
+      break;
     case 'uwu':
       if (Math.random() > 0.4) {
         msg.channel.send(uwu);
