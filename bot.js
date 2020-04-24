@@ -1,6 +1,7 @@
 const Discord = require("discord.js");
 const client = new Discord.Client();
 
+/* Borger Ingredients */
 var top = [
   "Bun",
   "Brick",
@@ -93,6 +94,7 @@ var options = [
   "[This burger has been kissed by Keanu Reeves.]",
 ];
 
+/* Predefined strings */
 var uwu =
   "\noh\n  ᵘʷᵘ   oh fuck ᵘʷᵘ ᵘʷᵘ\nᵘʷᵘ      ᵘʷᵘ           ᵘʷᵘ \n   ᵘʷᵘ          \n         ᵘʷᵘ      ᵘʷᵘ     fuck sorry guys\nᵘʷᵘ             ᵘʷᵘ ᵘʷᵘ     ᵘʷᵘ\nᵘʷᵘ  ᵘʷᵘ sorry im dropping \nᵘʷᵘ my uwus all over the ᵘʷᵘ place  ᵘʷᵘ      \n   ᵘʷᵘ     ᵘʷᵘ sorry";
 var uwwu =
@@ -103,6 +105,7 @@ var demons =
   "OwO\n\nWe all have demons\n\n\nUwU\n\nAnd sometimes\n\n\n•w•\n\nThey win";
 var tts_bool = true;
 
+/* Borger Assembly */
 function top_select() {
   if (Math.random() > 0.3) {
     var top_str = "Bun";
@@ -124,7 +127,7 @@ function mid_select() {
   while (Math.random() > 0.8) {
     mid_str += "\n" + middle[Math.floor(Math.random() * middle.length)];
   }
-  return mid_str
+  return mid_str;
 }
 
 function option_select() {
@@ -138,9 +141,9 @@ function borger() {
   var top_ingredient = top_select();
   var bottom_ingredient = top_ingredient;
 
-  if (top_ingredient === "The below ingredient x2"){
+  if (top_ingredient === "The below ingredient x2") {
     bottom_ingredient = "The above ingredient x2";
-  };
+  }
 
   var middle_option = mid_op_select();
   var middle_ingredient = mid_select();
@@ -148,17 +151,29 @@ function borger() {
 
   var borger = top_ingredient;
 
-  if (middle_option !== -1){
+  if (middle_option !== -1) {
     borger += "\n" + middle_option;
   }
 
   borger += "\n" + middle_ingredient + "\n" + bottom_ingredient;
 
-  if (bottom_option !== -1){
+  if (bottom_option !== -1) {
     borger += "\n" + bottom_option;
   }
 
   return borger;
+}
+
+function uwu(msg) {
+  if (Math.random() > 0.4) {
+    msg.channel.send(uwu);
+  } else if (Math.random() > 0.5) {
+    msg.channel.send(uwwu);
+  } else {
+    msg.channel.send("u fucking weeb", {
+      tts: tts_bool,
+    });
+  }
 }
 
 client.on("ready", () => {
@@ -174,15 +189,7 @@ client.on("message", (msg) => {
       msg.channel.send(top);
       break;
     case "uwu":
-      if (Math.random() > 0.4) {
-        msg.channel.send(uwu);
-      } else if (Math.random() > 0.5) {
-        msg.channel.send(uwwu);
-      } else {
-        msg.channel.send("u fucking weeb", {
-          tts: tts_bool,
-        });
-      }
+      uwu(msg);
       break;
     case "owo":
       msg.channel.send(owo, {
