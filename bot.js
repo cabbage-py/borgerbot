@@ -107,34 +107,34 @@ function top_select() {
   if (Math.random() > 0.3) {
     var top_str = "Bun";
   } else {
-    var top_str = this.top[Math.floor(Math.random() * top.length)];
+    var top_str = this.top[Math.floor(Math.random() * this.top.length)];
   }
   return top_str;
 }
 
 function mid_op_select() {
   if (Math.random() > 0.9) {
-    return this.mid_op[Math.floor(Math.random() * mid_op.length)];
+    return this.mid_op[Math.floor(Math.random() * this.mid_op.length)];
   }
   return -1;
 }
 
 function mid_select() {
-  mid_str = this.middle[Math.floor(Math.random() * middle.length)];
+  var mid_str = this.middle[Math.floor(Math.random() * this.middle.length)];
   while (Math.random() > 0.8) {
-    mid_str += "\n" + this.middle[Math.floor(Math.random() * middle.length)];
+    mid_str += "\n" + this.middle[Math.floor(Math.random() * this.middle.length)];
   }
   return mid_str
 }
 
 function option_select() {
   if (Math.random() > 0.7) {
-    return this.options[Math.floor(Math.random() * options.length)];
+    return this.options[Math.floor(Math.random() * this.options.length)];
   }
   return -1;
 }
 
-function borger(top, mid_op, middle, options) {
+function borger() {
   var top_ingredient = top_select();
   var bottom_ingredient = top_ingredient;
 
@@ -208,10 +208,10 @@ client.on("message", (msg) => {
       );
       break;
     case "borger":
-      msg.channel.send(borger(top, mid_op, middle, options));
+      msg.channel.send(borger());
       break;
     case "borg":
-      msg.channel.send(borger(top, mid_op, middle, options));
+      msg.channel.send(borger());
       break;
     case "goodnight":
       msg.reply("goodnight :~)");
