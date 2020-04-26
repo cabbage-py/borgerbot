@@ -402,7 +402,7 @@ client.on("message", (msg) => {
     //reset module
     if (msg.guild) {
       if (msg.member.hasPermission('ADMINISTRATOR')){
-        if (message = "borger hard reset"){
+        if (message === "borger hard reset"){
           reset();
           msg.channel.send(
             "borger bot reset."
