@@ -2,7 +2,7 @@ const Discord = require("discord.js");
 const client = new Discord.Client();
 
 /* Borger Ingredients */
-var top = [
+const top = [
   "Bun",
   "Brick",
   "A piece of lettuce",
@@ -13,13 +13,13 @@ var top = [
   "100 Rice-shaped buns",
   "1 Bun-shaped rice",
 ];
-var mid_op = [
+const mid_op = [
   "(The next item is comically undersized)",
   "The below ingredient x2",
   "(The next ingredient is vegan)",
   "(The next ingredient is suspiciously sticky)",
 ];
-var middle = [
+const middle = [
   '"Ham"',
   "Celery",
   "Cereal dust",
@@ -80,7 +80,7 @@ var middle = [
   "Anti-depressants (assorted)",
   "Gamer girl bath water",
 ];
-var options = [
+const options = [
   "[This borger is blended and served in a tall glass. With an Umbrella.]",
   "[Some ingredients may have fallen to the floor.]",
   "[This borger is then toasted.]",
@@ -95,15 +95,29 @@ var options = [
 ];
 
 /* Predefined strings */
-var uwu =
+const uwu =
   "\noh\n  ᵘʷᵘ   oh fuck ᵘʷᵘ ᵘʷᵘ\nᵘʷᵘ      ᵘʷᵘ           ᵘʷᵘ \n   ᵘʷᵘ          \n         ᵘʷᵘ      ᵘʷᵘ     fuck sorry guys\nᵘʷᵘ             ᵘʷᵘ ᵘʷᵘ     ᵘʷᵘ\nᵘʷᵘ  ᵘʷᵘ sorry im dropping \nᵘʷᵘ my uwus all over the ᵘʷᵘ place  ᵘʷᵘ      \n   ᵘʷᵘ     ᵘʷᵘ sorry";
-var uwwu =
+const uwwu =
   "\noh\n  ᵘʷᵘ   oh fwuck ᵘʷᵘ ᵘʷᵘ\nᵘʷᵘ      ᵘʷᵘ           ᵘʷᵘ \n   ᵘʷᵘ          \n         ᵘʷᵘ      ᵘʷᵘ     fwuck sowwy gwuys\nᵘʷᵘ             ᵘʷᵘ ᵘʷᵘ     ᵘʷᵘ\nᵘʷᵘ  ᵘʷᵘ sowwy im dwopping \nᵘʷᵘ my uwus all over the ᵘʷᵘ pwace  ᵘʷᵘ      \n   ᵘʷᵘ     ᵘʷᵘ sowwy >< nyah~";
-var owo =
+const owo =
   "Rawr x3 nuzzles how are you pounces on you you're so warm o3o notices you have a bulge o: someone's happy ;) nuzzles your necky wecky~ murr~ hehehe rubbies your bulgy wolgy you're so big :oooo rubbies more on your bulgy wolgy it doesn't stop growing ·///· kisses you and lickies your necky daddy likies (; nuzzles wuzzles I hope daddy really likes $: wiggles butt and squirms I want to see your big daddy meat~ wiggles butt I have a little itch o3o wags tail can you please get my itch~ puts paws on your chest nyea~ its a seven inch itch rubs your chest can you help me pwease squirms pwetty pwease sad face I need to be punished runs paws down your chest and bites lip like I need to be punished really good~ paws on your bulge as I lick my lips I'm getting thirsty. I can go for some milk unbuttons your pants as my eyes glow you smell so musky :v licks shaft mmmm~ so musky drools all over your cock your daddy meat I like fondles Mr. Fuzzy Balls hehe puts snout on balls and inhales deeply oh god im so hard~ licks balls punish me daddy~ nyea~ squirms more and wiggles butt I love your musky goodness bites lip please punish me licks lips nyea~ suckles on your tip so good licks pre of your cock salty goodness~ eyes role back and goes balls deep mmmm~ moans and suckles";
-var demons =
+const demons =
   "OwO\n\nWe all have demons\n\n\nUwU\n\nAnd sometimes\n\n\n•w•\n\nThey win";
+
+const help = "List of ~~fun~~ commands:\n - `borger`, `can i get uhhh`\n - `tts`, `menu`\n - `uwu`, `owo`\n - `;)`\n - `demons`\n - `what if we put our minecraft beds together`\n - `coinflip` \n\nAdmin Tools:\n - `Annoy`\n - `borger hard reset`\n\nBe sure to say goodnight when you go, and wave us goodbye o/!"
+const annoy_help = "Annoy someone with constant messages and emotes!\n\nCommands:\n - `annoy message <member_id> <message>`\n - `annoy emote <member_id> <emote_name>` \n\nTo remove:\n - `annoy remove <member_id>`";
+
+/* Variable Settings */
 var tts_bool = true;
+var messages = {};
+var emotes = {};
+
+/* Reset */
+function reset() {
+  tts_bool = true;
+  messages = {};
+  emotes = {};
+}
 
 /* Borger Assembly */
 function top_select() {
@@ -181,168 +195,220 @@ client.on("ready", () => {
 });
 
 client.on("message", (msg) => {
-  switch (msg.content.toLowerCase()) {
-    case "ping":
-      msg.channel.send("pong");
-      break;
-    case "test":
-      msg.channel.send(top);
-      break;
-    case "tts":
-      if (tts_bool){
-        var temp = "Text-to-speech currently on";
-      } else {
-        var temp = "Text-to-speech currently off";
-      }
-      msg.channel.send(temp + "\nCommands:\n - `tts on`\n - `tts off`");
-      break;
-    case "tts on":
-      tts_bool = true;
-      msg.channel.send("Text-to-speech now on.");
-      break;
-    case "tts off":
-      tts_bool = false;
-      msg.channel.send("Text-to-speech now off.");
-      break;
-    case "uwu":
-      weeb(msg);
-      break;
-    case "owo":
-      msg.channel.send(owo, {
-        tts: tts_bool,
-      });
-      break;
-    case ";)":
-      if (msg.author.bot === false) {
-        msg.channel.send(";)", { tts: tts_bool });
-      }
-      break;
-    case "no u":
-      if (msg.author.bot === false) {
-        msg.channel.send("no u");
-      }
-      break;
-    case "borger":
-      msg.channel.send(borger());
-      break;
-    case "borg":
-      msg.channel.send(borger());
-      break;
-    case "goodnight":
-      msg.reply("goodnight :~)");
-      break;
-    case "good night":
-      msg.reply("goodnight :~)");
-      break;
-    case "gnite":
-      msg.reply("goodnight :~)");
-      break;
-    case "menu":
-      msg.channel.send(
-        "Please specify either:\n - `buns` \n - `ingredients` \n - `ingredient options`\n - `borger options`\ne.g.`menu ingredients`"
-      );
-      break;
-    case "menu buns":
-      msg.channel.send(top.join(", "));
-      break;
-    case "menu ingredients":
-      msg.channel.send(middle.join(", "));
-      break;
-    case "menu ingredient options":
-      msg.channel.send(mid_op.join(", "));
-      break;
-    case "menu borger options":
-      msg.channel.send(options.join(", "));
-      break;
-    case "i want die":
-      msg.channel.send("me too", { tts: tts_bool });
-      break;
-    case "coinflip":
-      if (Math.random() > 0.5) {
-        msg.channel.send("tails");
-      } else {
-        msg.channel.send("heads");
-      }
-      break;
-    case "o/":
-      if (msg.author.bot === false) {
-        msg.channel.send("o7");
-      }
-      break;
-    case "o7":
-      if (msg.author.bot === false) {
-        msg.channel.send("o/");
-      }
-      break;
-    case "demons":
-      msg.channel.send(demons);
-      break;
-    default:
-      break;
-  }
-  var str = msg.content.toLowerCase();
-  if (str.substring(0, 7) === "saythis") {
-    client.channels.get("413364266175823874").send(str.substring(7));
-  } else if (str.substring(0, 6) === "saytts") {
-    client.channels.get("413364266175823874").send(str.substring(7));
-  } else if (str.substring(0, 12).toLowerCase() === "can i get uh") {
-    msg.channel.send(borger(top, mid_op, middle, options), { tts: true });
-  } else if (
-    (msg.author.bot === false) &
-    ((str === "dont @ me") | (str === "don't @ me"))
-  ) {
-    var id = "<@" + msg.author.id + ">";
-    msg.channel.send(id);
-  } else if (msg.isMentioned(client.user)) {
-    msg.channel.send("dont @ me");
-  } else if (str.substring(0, 7) === "what if") {
-    if (msg.author.bot === false) {
+  if (msg.author.bot === false){
+    var message = msg.content.toLowerCase()
+    switch (msg.content.toLowerCase()) {
+      case "ping":
+        msg.channel.send("pong");
+        break;
+      case "bing":
+        msg.channel.send("bong");
+        break;
+      case "borgerbot pls help":
+        msg.channel.send(help);
+        break;
+      case "annoy":
+        msg.channel.send(annoy_help);
+        break;
+      case "tts":
+        if (tts_bool){
+          var temp = "Text-to-speech currently on";
+        } else {
+          var temp = "Text-to-speech currently off";
+        }
+        msg.channel.send(temp + "\nCommands:\n - `tts on`\n - `tts off`");
+        break;
+      case "tts on":
+        tts_bool = true;
+        msg.channel.send("Text-to-speech now on.");
+        break;
+      case "tts off":
+        tts_bool = false;
+        msg.channel.send("Text-to-speech now off.");
+        break;
+      case "uwu":
+        weeb(msg);
+        break;
+      case "owo":
+        msg.channel.send(owo, {
+          tts: tts_bool,
+        });
+        break;
+      case ";)":
+        if (msg.author.bot === false) {
+          msg.channel.send(";)", { tts: tts_bool });
+        }
+        break;
+      case "no u":
+        if (msg.author.bot === false) {
+          msg.channel.send("no u");
+        }
+        break;
+      case "borger":
+        msg.channel.send(borger());
+        break;
+      case "borg":
+        msg.channel.send(borger());
+        break;
+      case "goodnight":
+        msg.reply("goodnight :~)");
+        break;
+      case "good night":
+        msg.reply("goodnight :~)");
+        break;
+      case "gnite":
+        msg.reply("goodnight :~)");
+        break;
+      case "menu":
+        msg.channel.send(
+          "Please specify either:\n - `buns` \n - `ingredients` \n - `ingredient options`\n - `borger options`\ne.g.`menu ingredients`"
+        );
+        break;
+      case "menu buns":
+        msg.channel.send(top.join(", "));
+        break;
+      case "menu ingredients":
+        msg.channel.send(middle.join(", "));
+        break;
+      case "menu ingredient options":
+        msg.channel.send(mid_op.join(", "));
+        break;
+      case "menu borger options":
+        msg.channel.send(options.join(", "));
+        break;
+      case "i want die":
+        msg.channel.send("me too", { tts: tts_bool });
+        break;
+      case "coinflip":
+        if (Math.random() > 0.5) {
+          msg.channel.send("tails");
+        } else {
+          msg.channel.send("heads");
+        }
+        break;
+      case "o/":
+        if (msg.author.bot === false) {
+          msg.channel.send("o7");
+        }
+        break;
+      case "o7":
+        if (msg.author.bot === false) {
+          msg.channel.send("o/");
+        }
+        break;
+      case "demons":
+        msg.channel.send(demons);
+        break;
+      case "dont @ me":
+        var id = "<@" + msg.author.id + ">";
+        msg.channel.send(id);
+        break;
+      case "don't @ me":
+        var id = "<@" + msg.author.id + ">";
+        msg.channel.send(id);
+        break;
+      default:
+        break;
+    }
+    //my own console
+    if (msg.member.id === 130780515459399680){
+      if (message.substring(0, 7) === "saythis") {
+        client.channels.get("413364266175823874").send(message.substring(7));
+      } else if (message.substring(0, 6) === "saytts") {
+        client.channels.get("413364266175823874").send(message.substring(7), { tts: true });
+      } 
+    }
+
+    //tts of borger command
+    if (message.substring(0, 12).toLowerCase() === "can i get uh") {
+      msg.channel.send(borger(top, mid_op, middle, options), { tts_bool });
+    }
+    //dont @ me command
+    if (msg.isMentioned(client.user)) {
+      msg.channel.send("dont @ me");
+    }
+    //What if command
+    if (message.substring(0, 7) === "what if") {
       msg.channel.send(
         "what if... " +
-          str.substring(7) +
+          message.substring(7) +
           "...   haha just kidding...                unless..?"
       );
     }
-  }
-  if (msg.member.id === "117577461377531910") {
-    var emoji = msg.guild.emojis.find((emoji) => emoji.name === "mookle");
-    msg.react(emoji);
-  }
-  if (msg.member.id === "231049035648073729") {
-    if (false) {
+
+    //annoy console
+    if (msg.guild) {
+      if (msg.member.hasPermission('ADMINISTRATOR')){
+        if (message.substring(0, 6) === "annoy ") {
+          if (message.substring(6, 13) === "message") {
+            var arr = message.substring(14).split(" ");
+            messages[arr[0]] = arr[1];
+          } else if (message.substring(6, 11) === "emote"){
+            var arr = message.substring(12).split(" ");
+            emotes[arr[0]] = arr[1];
+          } else if (message.substring(6, 12) === "remove"){
+            var remove_id = message.substring(13);
+            delete messages[remove_id];
+            delete emotes[remove_id];
+          }
+        }
+      }
+    }
+
+    if (msg.member.id in messages){
       msg.channel.send(
-        "wow is this thaiuni kid w/ michaelSOFTWARE ENGINEERINGlikes animu + mangu"
+        messages[msg.member.id]
       );
     }
-  }
-  if (msg.member.id === "241459768944754688") {
-    if (false) {
-      msg.channel.send(
-        "can't believe you dogged the bois for a 3-star vayne (with titanic hydra)"
-      );
+    if (msg.member.id in emotes){
+      try {
+        msg.react(
+          msg.guild.emojis.find((emoji) => emoji.name === emotes[msg.member.id])
+        );
+      } catch(err){
+        //do nothing
+      } 
     }
-  }
-  if (msg.member.id === "125206334936317952") {
-    //msg.channel.send("\"i'm gonna watch that anime, yukihira no souma\" - issy");
-  }
-  if (
-    (msg.author.bot === false) &
-    ((str.indexOf("i'm ") !== -1) | (str.indexOf("im ") !== -1))
-  ) {
-    if (
-      str.indexOf("i'm ") !== -1 &&
-      str.substring(str.indexOf("i'm") + 4).trim()
-    ) {
-      msg.channel.send(
-        "hi " + str.substring(str.indexOf("i'm") + 4) + ", im dad"
-      );
-    } else if (
-      str.indexOf("im ") !== -1 &&
-      str.substring(str.indexOf("im") + 3).trim()
-    ) {
-      msg.channel.send(
-        "hi " + str.substring(str.indexOf("im") + 3) + ", im dad"
-      );
+
+    //permanent mookle feature
+    if (msg.member.id === "117577461377531910") {
+      try {
+        var emoji = msg.guild.emojis.find((emoji) => emoji.name === "mookle");
+        msg.react(emoji);
+      } catch(err) {
+        //do nothing
+      }
+    }
+
+    //dad module
+    if ((message.indexOf("i'm ") !== -1) | (message.indexOf("im ") !== -1)) {
+      if (
+        message.indexOf("i'm ") !== -1 &&
+        message.substring(message.indexOf("i'm") + 4).trim()
+      ) {
+        msg.channel.send(
+          "hi " + message.substring(message.indexOf("i'm") + 4) + ", im dad"
+        );
+      } else if (
+        message.indexOf("im ") !== -1 &&
+        message.substring(message.indexOf("im") + 3).trim()
+      ) {
+        msg.channel.send(
+          "hi " + message.substring(message.indexOf("im") + 3) + ", im dad"
+        );
+      }
+    }
+
+    //reset module
+    if (msg.guild) {
+      if (msg.member.hasPermission('ADMINISTRATOR')){
+        if (message = "borger hard reset"){
+          reset();
+          msg.channel.send(
+            "borger bot reset."
+          );
+        }
+      }
     }
   }
 });
