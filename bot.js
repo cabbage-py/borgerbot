@@ -204,6 +204,9 @@ client.on("message", (msg) => {
       case "bing":
         msg.channel.send("bong");
         break;
+      case "help":
+        msg.channel.send("use command `borgerbot pls help` for more details");
+        break;
       case "borgerbot pls help":
         msg.channel.send(help);
         break;
