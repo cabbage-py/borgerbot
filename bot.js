@@ -343,13 +343,16 @@ client.on("message", (msg) => {
           if (message.substring(6, 13) === "message") {
             var arr = message.substring(14).split(" ");
             messages[arr[0]] = arr[1];
+            msg.channel.send("mild annoyance created for", msg.member.name);
           } else if (message.substring(6, 11) === "emote"){
             var arr = message.substring(12).split(" ");
             emotes[arr[0]] = arr[1];
+            msg.channel.send("mild annoyance created for", msg.member.name);
           } else if (message.substring(6, 12) === "remove"){
             var remove_id = message.substring(13);
             delete messages[remove_id];
             delete emotes[remove_id];
+            msg.channel.send("stopped bothering", msg.member.name);
           }
         }
       }
