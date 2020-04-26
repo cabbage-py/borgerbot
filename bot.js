@@ -104,7 +104,7 @@ const owo =
 const demons =
   "OwO\n\nWe all have demons\n\n\nUwU\n\nAnd sometimes\n\n\n•w•\n\nThey win";
 
-const help = "List of ~~fun~~ commands:\n - `borger`, `can i get uhhh`\n - `tts`, `menu`\n - `uwu`, `owo`\n - `;)`\n - `demons`\n - `what if we put our minecraft beds together`\n - `coinflip` \n\nAdmin Tools:\n - `Annoy`\n - `borger hard reset`\n\nBe sure to say goodnight when you go, and wave us goodbye o/!"
+const help = "List of ~~fun~~ commands:\n - `borger`, `can i get uhhh`\n - `tts`, `menu`\n - `uwu`, `owo`\n - `;)`\n - `demons`\n - `what if we put our minecraft beds together`\n - `coinflip` \n\nAdmin Tools:\n - `annoy`\n - `borger hard reset`\n\nBe sure to say goodnight when you go, and wave us goodbye o/!"
 const annoy_help = "Annoy someone with constant messages and emotes!\n\nCommands:\n - `annoy message <member_id> <message>`\n - `annoy emote <member_id> <emote_name>` \n\nTo remove:\n - `annoy remove <member_id>`";
 
 /* Variable Settings */
