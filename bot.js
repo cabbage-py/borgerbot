@@ -1,3 +1,6 @@
+/* ok i made this code in like 2018 
+   its kind of gross but i cant be bothered rewriting this neatly */
+
 const Discord = require("discord.js");
 const client = new Discord.Client();
 
@@ -24,8 +27,6 @@ const middle = [
   "Celery",
   "Cereal dust",
   "Vegan beef patty",
-  "Cum",
-  "big gay",
   "A single strand of Donald Trump's hair",
   "[REDACTED]",
   "Bun",
@@ -37,48 +38,31 @@ const middle = [
   "One whole head of cabbage",
   "Vegemite",
   "Waluigi's viscous sweat",
-  "Wario's viscous sweat",
   "Chicken Nuggets",
   "Intel Core i7 8700k",
   "Page 69 from The Communist Manifesto by Friedrich Engels & Karl Marx",
   "Carpet",
   "A kiss goodnight",
-  "Big anime tiddies",
-  "Vegans",
   "Colgate Total 12 (recommended by 9 out of 10 dentists)",
-  "LSD",
-  "A fapkin",
-  "A fleshlight",
   "Lvl 10 fishing",
   "Gravy powder",
   "Covfefe",
-  "Viagra",
-  "Urine fetish",
-  "Dumb fuck juice",
   "A panic attack",
   "Salt",
   "All the sauces at Subway",
-  "Feetloaf",
-  "Cocaine",
-  "Sausage roll bread (thanks issy)",
   "Hummus",
   "The 0.04¢ that Michael owes me",
   "Toilet paper",
   "Hot Kool Aid™",
   "1 lemon",
   "Bone hurting juice",
-  "Furry Fetish",
   "Crippling social anxiety",
   "Crippling depression",
   "An UNO reverse card",
-  "Orphan tears",
   "Tide pods",
   "Powder that doesn't taste like powder but makes you say that it does",
   "Asbestos",
-  "Neckbeard powder",
   "A bowling ball",
-  "Anti-depressants (assorted)",
-  "Gamer girl bath water",
 ];
 const options = [
   "[This borger is blended and served in a tall glass. With an Umbrella.]",
@@ -89,7 +73,6 @@ const options = [
   "[This borger is blessed by the pope]",
   "[This borger gives +10 Health.]",
   "[This borger gives +10 Attack.]",
-  "[This borger makes you get the big gay.]",
   "[This borger kills you instantly.]",
   "[This burger has been kissed by Keanu Reeves.]",
 ];
@@ -119,7 +102,7 @@ function reset() {
   emotes = {};
 }
 
-/* Borger Assembly */
+/* Borger Assembly Helper Functions */
 function top_select() {
   if (Math.random() > 0.3) {
     var top_str = "Bun";
@@ -151,6 +134,7 @@ function option_select() {
   return -1;
 }
 
+/* Main Assembly Function */
 function borger() {
   var top_ingredient = top_select();
   var bottom_ingredient = top_ingredient;
